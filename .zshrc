@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:/Users/user/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -119,9 +119,10 @@ alias gpush="git push -u origin HEAD"
 alias gpull="git pull"
 alias gd="git diff"
 alias gdt="git difftool"
+alias gcf="gd --name-only | sed \"s/^/'/; s/$/'/\" | xargs code"
 
 # history setup
-HISTFILE=$HOME/.zhistory
+HISTFILE=$HOME/.zsh_history
 SAVEHIST=1000
 HISTSIZE=999
 setopt share_history
@@ -133,7 +134,12 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
+# init thefuck if installed
+if command -v thefuck >/dev/null 2>&1; then
+    eval "$(thefuck --alias)"
+fi
+
+# init direnv if installed
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
