@@ -1,0 +1,33 @@
+# Same as Black.
+line-length = 99 # 88 dedault
+indent-width = 4
+
+select = [
+    # "D",  # pydocstyle
+    "E",  # pycodestyle (error)
+    "W",  # pycodestyle (warning)
+    "F",  # Pyflakes
+    "N",  # pep8-naming
+    "B",  # flake8-bugbear
+    "ASYNC",  # flake8-async
+    "RUF100",  # ruff unused-noqa
+    "PL",  # pylint
+]
+ignore = [
+    "B008",  # https://docs.astral.sh/ruff/rules/function-call-in-default-argument
+    "B904",  # https://docs.astral.sh/ruff/rules/raise-without-from-inside-except
+    "D104",  # https://docs.astral.sh/ruff/rules/undocumented-public-package
+    "D200",  # https://docs.astral.sh/ruff/rules/fits-on-one-line
+    "D202",  # https://docs.astral.sh/ruff/rules/no-blank-line-after-function
+    "D203",  # https://docs.astral.sh/ruff/rules/one-blank-line-before-class
+    "D205",  # https://docs.astral.sh/ruff/rules/blank-line-after-summary
+    "D210",  # https://docs.astral.sh/ruff/rules/surrounding-whitespace
+    "D212",  # https://docs.astral.sh/ruff/rules/multi-line-summary-first-line
+    "D213",  # https://docs.astral.sh/ruff/rules/multi-line-summary-second-line
+    "D400",  # https://docs.astral.sh/ruff/rules/ends-in-period
+    "D406",  # https://docs.astral.sh/ruff/rules/new-line-after-section-name
+    "D407",  # https://docs.astral.sh/ruff/rules/dashed-underline-after-section
+    "D413",  # https://docs.astral.sh/ruff/rules/blank-line-after-last-section
+    "D415",  # https://docs.astral.sh/ruff/rules/ends-in-punctuation
+    "N815",  # https://docs.astral.sh/ruff/rules/mixed-case-variable-in-class-scope
+]
